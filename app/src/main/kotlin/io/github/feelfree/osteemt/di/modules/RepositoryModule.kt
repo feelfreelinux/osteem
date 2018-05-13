@@ -10,5 +10,5 @@ import retrofit2.Retrofit
 class RepositoryModule {
     // Remember to provide repository with interface
     @Provides
-    fun provideUsersApi(retrofit: Retrofit) : UsersApi = UsersRepository(retrofit)
+    fun provide(retrofit: Retrofit) : UsersApi = UsersRepository(retrofit)
 }
