@@ -1,6 +1,6 @@
 package io.github.feelfree.osteemt.base
 
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import dagger.android.support.DaggerAppCompatActivity
 
 // This class should be extended in all activities in this app. Place global-activity settings here

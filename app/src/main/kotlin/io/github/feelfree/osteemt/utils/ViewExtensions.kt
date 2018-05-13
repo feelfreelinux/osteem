@@ -1,7 +1,9 @@
 package io.github.feelfree.osteemt.utils
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+
+
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +11,8 @@ import android.view.ViewGroup
 // Remember to do not overuse extensions,
 // data-related operations should use separate utils class
 // But for android views its really handy.
-fun RecyclerView.prepare() {
-    layoutManager = LinearLayoutManager(context)
+fun androidx.recyclerview.widget.RecyclerView.prepare() {
+    layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
     drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
     isDrawingCacheEnabled = true
     setHasFixedSize(true)

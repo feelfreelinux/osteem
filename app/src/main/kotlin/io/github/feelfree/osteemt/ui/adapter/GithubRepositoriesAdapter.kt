@@ -1,6 +1,6 @@
 package io.github.feelfree.osteemt.ui.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import io.github.feelfree.osteemt.R
 import io.github.feelfree.osteemt.api.models.dataclass.GithubRepository
@@ -9,7 +9,7 @@ import io.github.feelfree.osteemt.utils.inflate
 import javax.inject.Inject
 
 // We're injecting constructor here. All viewholder dependencies can get them from here.
-class GithubRepositoriesAdapter @Inject constructor() : RecyclerView.Adapter<GithubRepositoryViewHolder>() {
+class GithubRepositoriesAdapter @Inject constructor() : androidx.recyclerview.widget.RecyclerView.Adapter<GithubRepositoryViewHolder>() {
     val repositories = arrayListOf<GithubRepository>()
     override fun onBindViewHolder(holder: GithubRepositoryViewHolder?, position: Int) {
         holder?.apply {
