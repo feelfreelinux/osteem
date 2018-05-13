@@ -2,7 +2,7 @@ package io.github.feelfree.osteemt.ui.repositorieslist
 
 import android.os.Bundle
 import io.github.feelfree.osteemt.R
-import io.github.feelfree.osteemt.api.models.dataclass.GithubRepository
+import io.github.feelfree.osteemt.api.models.viewmodels.Post
 import io.github.feelfree.osteemt.base.BaseActivity
 import io.github.feelfree.osteemt.ui.adapter.GithubRepositoriesAdapter
 import io.github.feelfree.osteemt.utils.isVisible
@@ -37,7 +37,7 @@ class GithubRepositoriesActivity : BaseActivity(), GithubRepositoriesView {
         presenter.unsubscribe()
     }
 
-    override fun showRepositories(repositories: List<GithubRepository>) {
+    override fun showRepositories(repositories: List<Post>) {
         githubAdapter.showRepositories(repositories)
         loadingView.isVisible = false
         swiperefresh.isRefreshing = false
