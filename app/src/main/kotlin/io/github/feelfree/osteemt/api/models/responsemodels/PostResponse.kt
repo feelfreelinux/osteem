@@ -15,6 +15,9 @@ data class PostResponse(
         @Json(name = "category")
         val category : String,
 
+        @Json(name = "created")
+        val created : String,
+
         @Json(name = "title")
         val title : String,
 
