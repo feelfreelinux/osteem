@@ -1,6 +1,5 @@
 package io.github.feelfree.osteemt
 
-import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import io.github.feelfree.osteemt.di.DaggerAppComponent
