@@ -3,22 +3,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-kapt {
-    generateStubs = true
-    correctErrorTypes = true
-}
-
-androidExtensions {
-    experimental = true
-}
-
 
 android {
     compileSdkVersion 27
     buildToolsVersion versions.buildTools
     defaultConfig {
-        applicationId "io.github.feelfree.kotlinmvpdaggerexample"
-        minSdkVersion 15
+        applicationId "io.github.feelfree.osteemt"
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -35,8 +26,8 @@ android {
         test.java.srcDirs += 'src/test/kotlin'
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
