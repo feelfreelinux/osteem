@@ -9,7 +9,4 @@ class OSteemtApplication : DaggerApplication() {
         return DaggerAppComponent.builder().create(this)
     }
 
-    companion object {
-        val BASE_URL = "https://api.github.com"
-    }
 }

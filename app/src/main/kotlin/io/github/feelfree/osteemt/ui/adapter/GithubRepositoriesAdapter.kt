@@ -10,9 +10,11 @@ import javax.inject.Inject
 
 // We're injecting constructor here. All viewholder dependencies can get them from here.
 class GithubRepositoriesAdapter @Inject constructor() : androidx.recyclerview.widget.RecyclerView.Adapter<GithubRepositoryViewHolder>() {
+
     val repositories = arrayListOf<GithubRepository>()
-    override fun onBindViewHolder(holder: GithubRepositoryViewHolder?, position: Int) {
-        holder?.apply {
+
+    override fun onBindViewHolder(holder: GithubRepositoryViewHolder, position: Int) {
+        holder.apply {
             bindView(repositories[position])
         }
     }
