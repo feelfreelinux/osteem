@@ -16,4 +16,7 @@ class SteemRequest(
 ) {
     @Json(name = "jsonrpc")
     val jsonrpc = "2.0"
+
+    @Json(name = "id")
+    val id = 1
 }
