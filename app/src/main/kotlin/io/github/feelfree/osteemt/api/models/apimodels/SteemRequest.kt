@@ -1,4 +1,4 @@
-package io.github.feelfree.osteemt.api
+package io.github.feelfree.osteemt.api.models.apimodels
 
 import com.squareup.moshi.Json
 
