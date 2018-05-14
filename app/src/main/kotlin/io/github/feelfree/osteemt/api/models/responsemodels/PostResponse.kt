@@ -1,38 +1,38 @@
 package io.github.feelfree.osteemt.api.models.responsemodels
 
-import com.squareup.moshi.Json
+import com.fasterxml.jackson.annotation.JsonProperty
 
 data class PostResponse(
-        @Json(name = "id")
+        @JsonProperty("id")
         val id : Int,
 
-        @Json(name = "author")
+        @JsonProperty("author")
         val author : String,
 
-        @Json(name = "permlink")
+        @JsonProperty("permlink")
         val permlink : String,
 
-        @Json(name = "category")
+        @JsonProperty("category")
         val category : String,
 
-        @Json(name = "created")
+        @JsonProperty("created")
         val created : String,
 
-        @Json(name = "title")
+        @JsonProperty("title")
         val title : String,
 
-        @Json(name = "body")
+        @JsonProperty("body")
         val body : String,
 
-        @Json(name = "json_metadata")
+        @JsonProperty("json_metadata")
         val jsonMetadata : String,
 
-        @Json(name = "pending_payout_value")
+        @JsonProperty("pending_payout_value")
         val pendingPayoutValue : String,
 
-        @Json(name = "children")
+        @JsonProperty("children")
         val children : Int,
 
-        @Json(name = "net_votes")
+        @JsonProperty("net_votes")
         val netVotes : Int
 )
