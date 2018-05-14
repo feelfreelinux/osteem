@@ -5,4 +5,4 @@
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"
     android:fitsSystemWindows="true"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+    app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
