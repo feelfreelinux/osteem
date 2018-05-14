@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_feed"
+        android:title="@string/feed"
+        android:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/ic_feed">
+    </item>
+
+    <item
+        android:id="@+id/nav_blog"
+        android:title="@string/blog"
+        android:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/ic_pen">
+    </item>
+
+    <item
+        android:id="@+id/nav_wallet"
+        android:title="@string/wallet"
+        android:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@drawable/ic_wallet">
+    </item>
+</menu>

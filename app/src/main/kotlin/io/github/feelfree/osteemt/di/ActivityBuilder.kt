@@ -2,12 +2,13 @@ package io.github.feelfree.osteemt.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import io.github.feelfree.osteemt.ui.repositorieslist.TrendingPostsActivity
-import io.github.feelfree.osteemt.ui.repositorieslist.GithubRepositoriesModule
+import io.github.feelfree.osteemt.ui.modules.mainnavigation.MainNavigationActivity
+import io.github.feelfree.osteemt.ui.modules.mainnavigation.MainNavigationFragmentProvider
+import io.github.feelfree.osteemt.ui.modules.mainnavigation.MainNavigationModule
 
 // Every activity that extends BaseActivity should be bind there
 @Module
 abstract class ActivityBuilder {
-    @ContributesAndroidInjector(modules = [GithubRepositoriesModule::class])
-    abstract fun bindGithubRepositoriesActivity() : TrendingPostsActivity
+    @ContributesAndroidInjector(modules = [MainNavigationModule::class, MainNavigationFragmentProvider::class])
+    abstract fun bindMainActivity() : MainNavigationActivity
 }
