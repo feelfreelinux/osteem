@@ -3,11 +3,9 @@ ext {
             buildTools        : '27.0.3',
 	        androidPlugin     : '3.2.0-alpha14',
             kotlin            : '1.2.41',
-            supportLibrary    : '28.0.0-alpha1',
             constraintLayout  : '1.1.0',
-            dagger2           : '2.15',
-            javax_annotations : '10.0-b28',
-            retrofit          : '2.3.0',
+            dagger2           : '2.16',
+            retrofit          : '2.4.0',
             rxjava            : '2.1.13',
             rxandroid         : '2.0.2'
     ]
