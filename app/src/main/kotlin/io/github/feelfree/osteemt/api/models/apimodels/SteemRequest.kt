@@ -1,6 +1,6 @@
 package io.github.feelfree.osteemt.api.models.apimodels
 
-import com.squareup.moshi.Json
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * Base class for all AppBase api requests
@@ -8,16 +8,16 @@ import com.squareup.moshi.Json
  * @param paramObject Moshi annotated object that keeps parameters of method
  */
 class SteemRequest(
-    @Json(name = "method")
+    @JsonProperty(name = "method")
     val method : String,
 
-    @Json(name = "params")
+    @JsonProperty("params")
     val params : Any
 ) {
-    @Json(name = "jsonrpc")
+    @JsonProperty(name = "jsonrpc")
     val jsonrpc = "2.0"
 
 
-    @Json(name = "id")
+    @JsonProperty("id")
     val id = 1
 }

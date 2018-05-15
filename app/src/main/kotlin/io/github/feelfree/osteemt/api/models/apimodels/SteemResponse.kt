@@ -1,17 +1,17 @@
 package io.github.feelfree.osteemt.api.models.apimodels
 
-import com.squareup.moshi.Json
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * SteemResponse is class which holds successful or failed response
  */
 data class SteemResponse<out V : Any>(
-        @Json(name = "jsonrpc")
+        @JsonProperty("jsonrpc")
         val jsonrpc : String,
 
-        @Json(name = "result")
+        @JsonProperty("result")
         val result : V?,
 
-        @Json(name = "error")
+        @JsonProperty("error")
         val error : SteemError?
 )

@@ -1,6 +1,6 @@
 package io.github.feelfree.osteemt.api.models.apimodels
 
-import com.squareup.moshi.Json
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.io.IOException
 
 /**
@@ -9,9 +9,9 @@ import java.io.IOException
  * @param message String error message
  */
 class SteemError(
-        @Json(name = "code")
+        @JsonProperty("code")
         val code : Int,
 
-        @Json(name = "message")
+        @JsonProperty("message")
         override val message : String
 ) : IOException()
