@@ -8,13 +8,13 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * @param paramObject Moshi annotated object that keeps parameters of method
  */
 class SteemRequest(
-    @JsonProperty(name = "method")
+    @JsonProperty("method")
     val method : String,
 
     @JsonProperty("params")
     val params : Any
 ) {
-    @JsonProperty(name = "jsonrpc")
+    @JsonProperty("jsonrpc")
     val jsonrpc = "2.0"
 
 
