@@ -11,7 +11,7 @@ class GetDiscussionsParams(
         @Json(name = "tag")
         val tag : String,
 
-        @Json(name = "trucate_body")
+        @Json(name = "truncate_body")
         val truncateBody : Int = 0
 ) {
     @Json(name = "limit")
