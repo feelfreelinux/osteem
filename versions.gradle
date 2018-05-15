@@ -7,7 +7,7 @@ ext {
             constraintLayout  : '1.1.0',
             dagger2           : '2.16',
             javax_annotations : '10.0-b28',
-            retrofit          : '2.3.0',
+            retrofit          : '2.4.0',
             rxjava            : '2.1.13',
             rxandroid         : '2.0.2'
     ]
