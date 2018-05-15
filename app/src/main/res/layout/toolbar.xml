@@ -5,5 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorPrimaryLight"
     android:minHeight="?attr/actionBarSize"
+    app:titleTextColor="@color/primaryTextColor"
+    app:subtitleTextColor="@color/secondaryTextColor"
     android:fitsSystemWindows="true"
     app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />

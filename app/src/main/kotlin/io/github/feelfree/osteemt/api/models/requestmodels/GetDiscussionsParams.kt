@@ -10,7 +10,7 @@ class GetDiscussionsParams(
         @JsonProperty("tag")
         val tag : String,
 
-        @JsonProperty("trucate_body")
+        @JsonProperty("truncate_body")
         val truncateBody : Int = 0
 ) {
     @JsonProperty("limit")
