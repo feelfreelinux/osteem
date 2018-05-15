@@ -1,12 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryLight">@color/colorPrimaryLight</item>
-        <item name="colorSecondary">@color/colorAccent</item>
-        <item name="colorSecondaryLight">@color/colorAccentLight</item>
-        <item name="colorSecondaryDark">@color/colorAccentDark</item>
+        <item name="colorPrimaryLight">@color/primaryLightColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryLight">@color/secondaryLightColor</item>
+        <item name="colorSecondaryDark">@color/secondaryDarkColor</item>
         <item name="scrimBackground">@color/mtrl_scrim_color</item>
         <item name="snackbarButtonStyle">?attr/borderlessButtonStyle</item>
 

@@ -8,4 +8,4 @@
     app:titleTextColor="@color/primaryTextColor"
     app:subtitleTextColor="@color/secondaryTextColor"
     android:fitsSystemWindows="true"
-    app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+    app:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />

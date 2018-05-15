@@ -1,6 +1,6 @@
 package io.github.feelfree.osteemt.ui.adapter
 
-import androidx.recyclerview.widget.RecyclerView
+import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import io.github.feelfree.osteemt.R
 import io.github.feelfree.osteemt.api.models.viewmodels.Post
