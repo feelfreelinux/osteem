@@ -3,6 +3,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+kapt {
+    correctErrorTypes = true
+    generateStubs = true
+}
+
 androidExtensions {
     experimental = true
 }
@@ -52,6 +57,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
     // Retrofit
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
     implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
     implementation "com.squareup.retrofit2:converter-jackson:$versions.retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"

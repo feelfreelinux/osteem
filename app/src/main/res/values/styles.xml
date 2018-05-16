@@ -3,13 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryLight">@color/primaryLightColor</item>
-        <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorSecondaryLight">@color/secondaryLightColor</item>
-        <item name="colorSecondaryDark">@color/secondaryDarkColor</item>
-        <item name="scrimBackground">@color/mtrl_scrim_color</item>
-        <item name="snackbarButtonStyle">?attr/borderlessButtonStyle</item>
-
+        <item name="colorPrimary">@color/primaryLightColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
     </style>
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">@dimen/toolbar_titletext_text_size</item>

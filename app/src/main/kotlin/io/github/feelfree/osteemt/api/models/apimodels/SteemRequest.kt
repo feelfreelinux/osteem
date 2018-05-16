@@ -11,12 +11,13 @@ class SteemRequest(
     @JsonProperty("method")
     val method : String,
 
-    @JsonProperty("params")
-    val params : Any
+    paramsObj : Any
 ) {
     @JsonProperty("jsonrpc")
     val jsonrpc = "2.0"
 
+    @JsonProperty("params")
+    val params = listOf(paramsObj)
 
     @JsonProperty("id")
     val id = 1

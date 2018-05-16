@@ -30,8 +30,8 @@
         android:gravity="bottom"
         app:menu="@menu/bottomnavigation_menu"
         android:layout_gravity="bottom"
-        app:itemBackground="@color/colorPrimaryLight"
-        app:itemIconTint="@color/colorPrimaryDark"
-        app:itemTextColor="@color/colorPrimaryDark">
+        app:itemBackground="@color/primaryLightColor"
+        app:itemIconTint="@color/primaryDarkColor"
+        app:itemTextColor="@color/primaryDarkColor">
     </android.support.design.widget.BottomNavigationView>
 </android.support.design.widget.CoordinatorLayout>

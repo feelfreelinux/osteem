@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 
 class PostsRepository(val retrofit : Retrofit) : PostsApi {
     override fun getDiscussionsByTrending(tag: String, truncateAt: Int) =
-        postsApi.getDiscussionsByTrending(SteemRequest("condenser_api.get_discussions_by_trending", listOf(GetDiscussionsParams(tag, truncateAt))))
+        postsApi.getDiscussionsByTrending(SteemRequest("condenser_api.get_discussions_by_trending", GetDiscussionsParams(tag, truncateAt)))
                 .compose(SteemReponseWrapper<List<PostResponse>>())
                 .map { it.map(PostMapper) }
 

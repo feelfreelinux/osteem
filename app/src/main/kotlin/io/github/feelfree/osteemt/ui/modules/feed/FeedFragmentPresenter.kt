@@ -8,7 +8,7 @@ class FeedFragmentPresenter(val schedulers: Schedulers, val postsApi: PostsApi) 
     var page = 1
     fun loadTrendingPosts(shouldRefresh : Boolean) {
         compositeObservable.add(
-                postsApi.getDiscussionsByTrending("", 60)
+                postsApi.getDiscussionsByTrending("", 20)
                         .subscribeOn(schedulers.backgroundThread())
                         .observeOn(schedulers.mainThread())
                         .subscribe({ view?.showPosts(it, shouldRefresh) }, { view?.showErrorDialog(it) })
