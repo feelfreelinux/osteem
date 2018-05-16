@@ -31,6 +31,7 @@
         android:layout_gravity="bottom"
         app:itemBackground="@color/primaryLightColor"
         app:itemIconTint="@color/primaryDarkColor"
-        app:itemTextColor="@color/primaryDarkColor">
+        app:itemTextColor="@color/primaryDarkColor"
+        app:layout_behavior="io.github.feelfree.osteemt.ui.behavior.BottomNavigationBehavior">
     </android.support.design.widget.BottomNavigationView>
 </android.support.design.widget.CoordinatorLayout>
