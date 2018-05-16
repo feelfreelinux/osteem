@@ -54,6 +54,7 @@ class FeedFragment : BaseFragment(), FeedFragmentView {
 
     override fun showPosts(posts: List<Post>, shouldRefresh: Boolean) {
         loadingView.isVisible = false
+        swiperefresh.isRefreshing = false
         postsAdapter.addData(posts, shouldRefresh)
     }
 
