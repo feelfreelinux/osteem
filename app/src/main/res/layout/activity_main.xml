@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <include
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            layout="@layout/toolbar"/>
+            app:layout_scrollFlags="scroll|enterAlways" />
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:id="@+id/containerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
-        app:menu="@menu/bottomnavigation_menu"
         android:layout_gravity="bottom"
+        android:background="@color/primaryLightColor"
+        android:gravity="bottom"
         app:itemBackground="@color/primaryLightColor"
         app:itemIconTint="@color/primaryDarkColor"
         app:itemTextColor="@color/primaryDarkColor"
-        app:layout_behavior="io.github.feelfree.osteemt.ui.behavior.BottomNavigationBehavior">
-    </android.support.design.widget.BottomNavigationView>
+        app:layout_behavior="io.github.feelfree.osteemt.ui.behavior.BottomNavigationBehavior"
+        app:menu="@menu/bottomnavigation_menu" />
 </android.support.design.widget.CoordinatorLayout>
