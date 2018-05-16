@@ -8,6 +8,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import org.ocpsoft.prettytime.PrettyTime
+import java.text.SimpleDateFormat
+import java.util.*
 
 // Remember to do not overuse extensions,
 // data-related operations should use separate utils class
@@ -25,3 +28,13 @@ fun ViewGroup.inflate(layoutId: Int): View =
 var View.isVisible : Boolean
     get() = visibility == View.VISIBLE
     set(value) { visibility = if (value) View.VISIBLE else View.GONE }
+
+fun String.toPrettyDate(): String {
+    return PrettyTime(Locale("pl")).format(parseDate(this))
+}
+
+fun parseDate(date: String): Date {
+    val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.GERMANY)
+    format.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
+    return format.parse(date)
+}

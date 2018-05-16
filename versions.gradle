@@ -8,6 +8,7 @@ ext {
             dagger2           : '2.16',
             retrofit          : '2.4.0',
             rxjava            : '2.1.13',
-            rxandroid         : '2.0.2'
+            rxandroid         : '2.0.2',
+            prettytime        : '4.0.1.Final',
     ]
 }
