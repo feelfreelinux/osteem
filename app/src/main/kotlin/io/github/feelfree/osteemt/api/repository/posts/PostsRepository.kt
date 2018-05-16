@@ -10,8 +10,8 @@ import io.reactivex.Single
 import retrofit2.Retrofit
 
 class PostsRepository(val retrofit : Retrofit) : PostsApi {
-    override fun getDiscussionsByTrending(tag: String, truncateAt: Int): Single<List<Post>> =
-        postsApi.getDiscussionsByTrending(SteemRequest("condenser_api.get_discussions_by_trending", GetDiscussionsParams(tag, truncateAt)))
+    override fun getDiscussionsByTrending(tag: String, truncateAt: Int, author : String?, permlink : String?): Single<List<Post>> =
+        postsApi.getDiscussionsByTrending(SteemRequest("condenser_api.get_discussions_by_trending", GetDiscussionsParams(tag, truncateAt, author, permlink)))
                 .compose(SteemReponseWrapper<List<PostResponse>>())
                 .map { it.map(PostMapper) }
 

@@ -35,21 +35,26 @@ class FeedFragment : BaseFragment(), FeedFragmentView {
         super.onActivityCreated(savedInstanceState)
         presenter.subscribe(this)
         presenter.loadTrendingPosts(true)
+
+        postsAdapter.loadNewData = {
+            author, permlink ->
+            presenter.loadTrendingPosts(false, author, permlink)
+        }
+
         recyclerView?.apply {
             prepare()
             adapter = postsAdapter
         }
         loadingView.isVisible = true
+
         swiperefresh.setOnRefreshListener {
-            swiperefresh.isRefreshing = true
             presenter.loadTrendingPosts(true)
         }
     }
 
     override fun showPosts(posts: List<Post>, shouldRefresh: Boolean) {
         loadingView.isVisible = false
-        postsAdapter.showPosts(posts)
-        swiperefresh.isRefreshing = false
+        postsAdapter.addData(posts, shouldRefresh)
     }
 
     override fun showError(e: Throwable) {
