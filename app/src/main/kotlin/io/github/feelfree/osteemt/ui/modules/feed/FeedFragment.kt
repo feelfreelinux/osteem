@@ -1,6 +1,7 @@
 package io.github.feelfree.osteemt.ui.modules.feed
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,11 +40,21 @@ class FeedFragment : BaseFragment(), FeedFragmentView {
             adapter = postsAdapter
         }
         loadingView.isVisible = true
+        swiperefresh.setOnRefreshListener {
+            swiperefresh.isRefreshing = true
+            presenter.loadTrendingPosts(true)
+        }
     }
 
     override fun showPosts(posts: List<Post>, shouldRefresh: Boolean) {
         loadingView.isVisible = false
         postsAdapter.showPosts(posts)
+        swiperefresh.isRefreshing = false
+    }
+
+    override fun showError(e: Throwable) {
+        Snackbar.make(view!!, e.toString(), Snackbar.LENGTH_LONG).show()
+        swiperefresh.isRefreshing = false
     }
 
     override fun onPause() {

@@ -11,7 +11,7 @@ class FeedFragmentPresenter(val schedulers: Schedulers, val postsApi: PostsApi) 
                 postsApi.getDiscussionsByTrending("", 20)
                         .subscribeOn(schedulers.backgroundThread())
                         .observeOn(schedulers.mainThread())
-                        .subscribe({ view?.showPosts(it, shouldRefresh) }, { view?.showErrorDialog(it) })
+                        .subscribe({ view?.showPosts(it, shouldRefresh) }, { view?.showError(it) })
         )
     }
 }
