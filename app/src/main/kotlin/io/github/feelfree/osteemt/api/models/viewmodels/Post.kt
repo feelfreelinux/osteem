@@ -15,4 +15,10 @@ class Post(
         val pendingPayoutValue : String,
         val children : Int,
         val netVotes : Int
-)
+) {
+    val avatarUrl = "https://steemitimages.com/u/$author/avatar"
+    val thumbnail : String? =
+            if (jsonMetadata.image.isNotEmpty()) {
+                jsonMetadata.image.first()
+            } else null
+}
