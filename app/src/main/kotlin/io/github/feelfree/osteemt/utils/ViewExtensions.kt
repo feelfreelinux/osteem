@@ -1,13 +1,12 @@
 package io.github.feelfree.osteemt.utils
 
-
-
-
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import org.ocpsoft.prettytime.PrettyTime
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,4 +36,10 @@ fun parseDate(date: String): Date {
     val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.GERMANY)
     format.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
     return format.parse(date)
+}
+
+fun ImageView.loadImage(url : String) {
+    Glide.with(context)
+            .load(url)
+            .into(this)
 }

@@ -1,6 +1,5 @@
 package io.github.feelfree.osteemt.api.models.viewmodels
 
-import android.os.Parcelable
 import io.github.feelfree.osteemt.api.models.apimodels.JsonMetadata
 
 class Post(
@@ -11,7 +10,7 @@ class Post(
         val createdAt : String,
         val title : String,
         val body : String,
-        val jsonMetadata : JsonMetadata,
+        jsonMetadata : JsonMetadata,
         val pendingPayoutValue : String,
         val children : Int,
         val netVotes : Int

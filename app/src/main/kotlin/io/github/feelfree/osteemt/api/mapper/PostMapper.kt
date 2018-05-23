@@ -1,7 +1,5 @@
 package io.github.feelfree.osteemt.api.mapper
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import io.github.feelfree.osteemt.api.models.apimodels.JsonMetadata
 import io.github.feelfree.osteemt.api.models.responsemodels.PostResponse
 import io.github.feelfree.osteemt.api.models.viewmodels.Post
 import io.github.feelfree.osteemt.utils.toPrettyDate

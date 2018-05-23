@@ -16,5 +16,4 @@ class PostsRepository(val retrofit : Retrofit) : PostsApi {
                 .map { it.map(PostMapper) }
 
     private val postsApi by lazy { retrofit.create(PostsRetrofitApi::class.java) }
-
 }
