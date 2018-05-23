@@ -14,6 +14,7 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
                 .setPositiveButton(android.R.string.ok, null)
                 .create()
                 .show()
+        throw e
     }
 
 

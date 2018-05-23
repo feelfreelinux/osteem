@@ -6,28 +6,25 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @JsonIgnoreProperties(ignoreUnknown = true)
 class JsonMetadata(
         @JsonProperty("tags")
-        val tags : List<String>,
+        val tags : List<String>? = emptyList(),
 
         @JsonProperty("app")
         val app : String,
 
         @JsonProperty("format")
-        val format : String,
-
-        @JsonProperty("language")
-        val language : String,
+        val format : String? = TYPE_MARKDOWN,
 
         @JsonProperty("thumbnail")
-        val thumbnail : String,
+        val thumbnail : String?,
 
         @JsonProperty("users")
-        val users : List<String>,
+        val users : List<String>? = emptyList(),
 
         @JsonProperty("links")
-        val links : List<String>,
+        val links : List<String>? = emptyList(),
 
         @JsonProperty("image")
-        val image : List<String>
+        val image : List<String>? = emptyList()
 ) {
     companion object {
         val TYPE_MARKDOWN = "markdown"

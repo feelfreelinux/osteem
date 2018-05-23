@@ -17,7 +17,7 @@ class Post(
 ) {
     val avatarUrl = "https://steemitimages.com/u/$author/avatar"
     val thumbnail : String? =
-            if (jsonMetadata.image.isNotEmpty()) {
+            if (jsonMetadata.image != null && jsonMetadata.image.isNotEmpty()) {
                 jsonMetadata.image.first()
             } else null
 }
