@@ -14,9 +14,6 @@ class JsonMetadata(
         @JsonProperty("format")
         val format : String? = TYPE_MARKDOWN,
 
-        @JsonProperty("thumbnail")
-        val thumbnail : String?,
-
         @JsonProperty("users")
         val users : List<String>? = emptyList(),
 
@@ -24,7 +21,7 @@ class JsonMetadata(
         val links : List<String>? = emptyList(),
 
         @JsonProperty("image")
-        val image : List<String>? = emptyList()
+        val image : List<String>?
 ) {
     companion object {
         val TYPE_MARKDOWN = "markdown"
