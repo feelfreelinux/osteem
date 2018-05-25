@@ -2,6 +2,7 @@ package io.github.feelfree.osteemt.api.repository.posts
 
 import io.github.feelfree.osteemt.api.mapper.PostMapper
 import io.github.feelfree.osteemt.api.models.apimodels.SteemRequest
+import io.github.feelfree.osteemt.api.models.requestmodels.GetDiscussionParams
 import io.github.feelfree.osteemt.api.models.requestmodels.GetDiscussionsParams
 import io.github.feelfree.osteemt.api.models.responsemodels.PostResponse
 import io.github.feelfree.osteemt.api.models.viewmodels.Post
@@ -14,6 +15,11 @@ class PostsRepository(val retrofit : Retrofit) : PostsApi {
         postsApi.getDiscussionsByTrending(SteemRequest("condenser_api.get_discussions_by_trending", GetDiscussionsParams(tag, truncateAt, author, permlink)))
                 .compose(SteemReponseWrapper<List<PostResponse>>())
                 .map { it.map(PostMapper) }
+
+    override fun getDiscussion(author: String, permlink: String): Single<Post> =
+        postsApi.getDiscussion(SteemRequest("condenser_api.get_discussion", GetDiscussionParams(author, permlink)))
+                .compose(SteemReponseWrapper<PostResponse>())
+                .map(PostMapper)
 
     private val postsApi by lazy { retrofit.create(PostsRetrofitApi::class.java) }
 }

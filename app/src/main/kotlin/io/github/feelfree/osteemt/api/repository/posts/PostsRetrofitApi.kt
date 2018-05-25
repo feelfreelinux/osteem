@@ -10,4 +10,7 @@ import retrofit2.http.POST
 interface PostsRetrofitApi {
     @POST("/")
     fun getDiscussionsByTrending(@Body params : SteemRequest) : Single<SteemResponse<List<PostResponse>>>
+
+    @POST("/")
+    fun getDiscussion(@Body params : SteemRequest) : Single<SteemResponse<PostResponse>>
 }

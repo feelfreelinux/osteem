@@ -5,4 +5,5 @@ import io.reactivex.Single
 
 interface PostsApi {
     fun getDiscussionsByTrending(tag : String, truncateAt : Int, author : String? = null, permlink : String? = null) : Single<List<Post>>
+    fun getDiscussion(author: String, permlink: String) : Single<Post>
 }
