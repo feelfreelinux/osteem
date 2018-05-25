@@ -1,6 +1,7 @@
 package io.github.feelfree.osteemt.api.models.viewmodels
 
 import io.github.feelfree.osteemt.api.models.apimodels.JsonMetadata
+import io.github.feelfree.osteemt.utils.removeMarkdown
 
 class Post(
         val id : Int,
@@ -22,4 +23,5 @@ class Post(
                 jsonMetadata.image.first()
             } else null
 
+    val description by lazy { body.removeMarkdown() }
 }

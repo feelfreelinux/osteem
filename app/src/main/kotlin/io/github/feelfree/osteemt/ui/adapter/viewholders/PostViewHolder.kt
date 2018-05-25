@@ -3,6 +3,7 @@ package io.github.feelfree.osteemt.ui.adapter.viewholders
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import io.github.feelfree.osteemt.api.models.viewmodels.Post
+import io.github.feelfree.osteemt.ui.modules.post.PostActivity
 import io.github.feelfree.osteemt.utils.isVisible
 import io.github.feelfree.osteemt.utils.loadImage
 import kotlinx.android.extensions.LayoutContainer
@@ -20,6 +21,10 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
         previewImage.isVisible = post.thumbnail != null
         post.thumbnail?.let {
             previewImage.loadImage(post.thumbnail!!)
+        }
+
+        containerView.setOnClickListener {
+            containerView.context.startActivity(PostActivity.createIntent(post.permlink, post.author, containerView.context))
         }
     }
 }

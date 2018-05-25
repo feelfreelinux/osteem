@@ -17,7 +17,7 @@ class PostsRepository(val retrofit : Retrofit) : PostsApi {
                 .map { it.map(PostMapper) }
 
     override fun getDiscussion(author: String, permlink: String): Single<Post> =
-        postsApi.getDiscussion(SteemRequest("condenser_api.get_discussion", GetDiscussionParams(author, permlink)))
+        postsApi.getDiscussion(SteemRequest("condenser_api.get_content", listOf(author, permlink)))
                 .compose(SteemReponseWrapper<PostResponse>())
                 .map(PostMapper)
 

@@ -7,13 +7,14 @@ import dagger.android.support.DaggerAppCompatActivity
 // Every activity that extends this class should be defined in ActivityBuilder
 abstract class BaseActivity : DaggerAppCompatActivity() {
     var isRunning = false
-    fun showErrorDialog(e: Throwable) {
+    open fun showError(e: Throwable) {
         AlertDialog.Builder(this)
                 .setTitle("Error occured")
                 .setMessage(e.message)
                 .setPositiveButton(android.R.string.ok, null)
                 .create()
                 .show()
+        throw e
     }
 
 

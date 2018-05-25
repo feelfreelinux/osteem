@@ -17,7 +17,7 @@ class SteemRequest(
     val jsonrpc = "2.0"
 
     @JsonProperty("params")
-    val params = listOf(paramsObj)
+    val params = if (paramsObj is List<*>) paramsObj else listOf(paramsObj)
 
     @JsonProperty("id")
     val id = 1

@@ -12,7 +12,7 @@ val PostMapper : Mapper<PostResponse, Post> = {
             it.category,
             it.created.toPrettyDate(),
             it.title,
-            it.body.removeMarkdown(),
+            it.body,
             JsonMetadataMapper(it.jsonMetadata),
             it.pendingPayoutValue,
             it.children,

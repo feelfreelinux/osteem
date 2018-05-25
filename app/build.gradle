@@ -69,6 +69,10 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$versions.glide"
     implementation "com.github.bumptech.glide:okhttp3-integration:$versions.glide"
 
+    implementation 'ru.noties:markwon:1.0.5'
+    implementation 'ru.noties:markwon-image-loader:1.0.5' // optional
+    implementation 'ru.noties:markwon-view:1.0.5' // optional
+
     // Utils
     implementation "org.ocpsoft.prettytime:prettytime:$versions.prettytime"
     testImplementation 'junit:junit:4.12'
