@@ -6,7 +6,7 @@ import dagger.android.support.DaggerAppCompatActivity
 // This class should be extended in all activities in this app. Place global-activity settings here
 // Every activity that extends this class should be defined in ActivityBuilder
 abstract class BaseActivity : DaggerAppCompatActivity() {
-    public var isRunning = false
+    var isRunning = false
     fun showErrorDialog(e: Throwable) {
         AlertDialog.Builder(this)
                 .setTitle("Error occured")
@@ -14,7 +14,6 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
                 .setPositiveButton(android.R.string.ok, null)
                 .create()
                 .show()
-        throw e
     }
 
 
