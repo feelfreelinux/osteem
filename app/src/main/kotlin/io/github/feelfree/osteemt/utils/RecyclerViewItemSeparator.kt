@@ -11,9 +11,9 @@ import io.github.feelfree.osteemt.R
 
 
 class RecyclerViewItemSeparator(val context: Context) : RecyclerView.ItemDecoration() {
-    val paint by lazy { Paint() }
+    private val paint by lazy { Paint() }
 
-    val normalHeight by lazy {
+    private val normalHeight by lazy {
         context.resources.getDimension(R.dimen.separator_normal).toInt()
     }
 
@@ -23,23 +23,18 @@ class RecyclerViewItemSeparator(val context: Context) : RecyclerView.ItemDecorat
 
     }
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) {
-        try {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State?) =
+            try {
             outRect.set(0, 0, 0, normalHeight)
         } catch (e: Exception) {
         }
-    }
 
-    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) {
-        try {
-            super.onDraw(c, parent, state)
-            for (i in 0 until parent.childCount) {
-                val view = parent.getChildAt(i)
-                c.drawRect(view.left.toFloat(), view.bottom.toFloat(), view.right.toFloat(), (view.bottom + normalHeight).toFloat(), paint)
-
-            }
-        } catch (e: Exception) {
-        }
+    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State?) = try {
+        super.onDraw(c, parent, state)
+        (0 until parent.childCount)
+                .map { parent.getChildAt(it) }
+                .forEach { c.drawRect(it.left.toFloat(), it.bottom.toFloat(), it.right.toFloat(), (it.bottom + normalHeight).toFloat(), paint) }
+    } catch (e: Exception) {
     }
 
 }

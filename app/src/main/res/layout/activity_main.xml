@@ -34,5 +34,5 @@
         app:itemIconTint="@drawable/nav_item_select"
         app:itemTextColor="@drawable/nav_item_select"
         app:layout_behavior="io.github.feelfree.osteemt.ui.behavior.BottomNavigationBehavior"
-        app:menu="@menu/bottomnavigation_menu" />
+        app:menu="@menu/bottom_navigation_menu" />
 </android.support.design.widget.CoordinatorLayout>

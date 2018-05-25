@@ -15,7 +15,8 @@
         android:layout_height="80dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="previewImage" />
 
     <TextView
         android:id="@+id/authorTextView"
