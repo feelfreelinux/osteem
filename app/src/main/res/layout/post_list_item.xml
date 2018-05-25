@@ -18,7 +18,8 @@
             android:id="@+id/previewImage"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_width="90dp"
+            android:scaleType="centerCrop"
+            android:layout_width="110dp"
             android:layout_height="80dp" />
 
         <TextView
@@ -52,11 +53,12 @@
 
         <TextView
             android:id="@+id/body"
-            android:layout_marginStart="8dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/previewImage"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTextView"
             tools:text="Dear Steemit Friends: Today we're going to be exploring some of the coastal area of" /> <!-- Every tools: attribute is ignored by compiler. -->
 
