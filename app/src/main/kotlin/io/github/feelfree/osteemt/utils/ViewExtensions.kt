@@ -19,6 +19,7 @@ fun RecyclerView.prepare() {
     drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
     isDrawingCacheEnabled = true
     setHasFixedSize(true)
+    addItemDecoration(RecyclerViewItemSeparator(context))
 }
 
 fun ViewGroup.inflate(layoutId: Int): View =
