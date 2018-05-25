@@ -10,14 +10,16 @@ class Post(
         val createdAt : String,
         val title : String,
         val body : String,
-        jsonMetadata : JsonMetadata,
+        val jsonMetadata : JsonMetadata?,
         val pendingPayoutValue : String,
         val children : Int,
         val netVotes : Int
 ) {
     val avatarUrl = "https://steemitimages.com/u/$author/avatar"
-    val thumbnail : String? =
-            if (jsonMetadata.image != null && jsonMetadata.image.isNotEmpty()) {
+    val thumbnail : String?
+        get() =
+            if (jsonMetadata?.image != null && jsonMetadata.image.isNotEmpty()) {
                 jsonMetadata.image.first()
             } else null
+
 }

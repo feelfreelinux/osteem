@@ -17,10 +17,9 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
         votes.text = " • ${post.netVotes} votes • ${post.children} comments"
         payout.text = post.pendingPayoutValue
         tagDataTextView.text = "in ${post.category} • ${post.createdAt}"
-        profilePicture.loadImage(post.avatarUrl)
-        previewImage.isVisible = post.thumbnail == null
-        if (post.thumbnail != null) {
-            previewImage.loadImage(post.thumbnail)
+        previewImage.isVisible = post.thumbnail != null
+        post.thumbnail?.let {
+            previewImage.loadImage(post.thumbnail!!)
         }
     }
 }
