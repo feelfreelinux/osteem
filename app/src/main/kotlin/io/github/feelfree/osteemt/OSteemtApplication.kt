@@ -10,6 +10,6 @@ class OSteemtApplication : DaggerApplication() {
     }
 
     companion object {
-        val BASE_URL = "https://api.steemit.com"
+        const val BASE_URL = "https://api.steemit.com"
     }
 }

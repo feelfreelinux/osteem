@@ -12,10 +12,10 @@ import javax.inject.Inject
 
 class PostActivity : BaseActivity(), PostView {
     companion object {
-        val EXTRA_PERMLINK = "EXTRA_PERMLINK"
-        val EXTRA_AUTHOR = "EXTRA_AUTHOR"
+        const val EXTRA_PERMLINK = "EXTRA_PERMLINK"
+        const val EXTRA_AUTHOR = "EXTRA_AUTHOR"
 
-        fun createIntent(permlink : String, author : String, context : Context) : Intent {
+        fun createIntent(permlink: String, author: String, context: Context): Intent {
             val intent = Intent(context, PostActivity::class.java)
             intent.putExtra(EXTRA_AUTHOR, author)
             intent.putExtra(EXTRA_PERMLINK, permlink)
@@ -23,11 +23,16 @@ class PostActivity : BaseActivity(), PostView {
         }
     }
 
-    val permlink by lazy { intent.getStringExtra(EXTRA_PERMLINK) }
-    val author by lazy { intent.getStringExtra(EXTRA_AUTHOR) }
+    val permlink: String by lazy { intent.getStringExtra(EXTRA_PERMLINK) }
+    val author: String by lazy { intent.getStringExtra(EXTRA_AUTHOR) }
 
     @Inject
-    lateinit var presenter : PostPresenter
+    lateinit var presenter: PostPresenter
+
+    override fun onSupportNavigateUp(): Boolean {
+        super.onBackPressed()
+        return true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +59,6 @@ class PostActivity : BaseActivity(), PostView {
 
     override fun showPost(post: Post) {
         loadingView.isVisible = false
-        markdownView.setMarkdown(post.body)
+        markdownView.markdown = post.body
     }
 }
