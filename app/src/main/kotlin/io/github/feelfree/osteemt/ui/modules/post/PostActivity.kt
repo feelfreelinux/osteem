@@ -8,6 +8,7 @@ import io.github.feelfree.osteemt.api.models.viewmodels.Post
 import io.github.feelfree.osteemt.base.BaseActivity
 import io.github.feelfree.osteemt.utils.isVisible
 import kotlinx.android.synthetic.main.activity_post.*
+import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 class PostActivity : BaseActivity(), PostView {
@@ -37,6 +38,10 @@ class PostActivity : BaseActivity(), PostView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
         loadingView.isVisible = true
         presenter.subscribe(this)
         presenter.loadDiscussion(author, permlink)
