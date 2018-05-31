@@ -26,7 +26,7 @@ fun RecyclerView.prepare() {
 
 fun TextView.renderHtml(body : String) {
     text = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-        Html.fromHtml(body,Html.FROM_HTML_MODE_LEGACY);
+        Html.fromHtml(body, Html.FROM_HTML_MODE_LEGACY)
     } else {
         Html.fromHtml(body)
     }
@@ -55,10 +55,4 @@ fun ImageView.loadImage(url: String) {
     GlideApp.with(context)
             .load(url)
             .into(this)
-}
-
-fun String.removeMarkdown(): String {
-    return replace("/<[^>]*>/g".toRegex(), "")
-            // Remove inline code
-            .replace("[^A-Za-z0-9 ]".toRegex(), "")
 }

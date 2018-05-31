@@ -67,14 +67,15 @@ class PostActivity : BaseActivity(), PostView {
 
     override fun showPost(post: Post) {
         loadingView.isVisible = false
-        if (post.isHtml) {
-            contentTextView.renderHtml(post.body)
-        } else {
-            val parser = Parser.builder().build()
-            val renderer = HtmlRenderer.builder().build()
-            val document = parser.parse(post.body)
-            val html = renderer.render(document)
-            contentTextView.renderHtml(html)
+        when {
+            post.isHtml -> contentTextView.renderHtml(post.body)
+            else -> {
+                val parser = Parser.builder().build()
+                val renderer = HtmlRenderer.builder().build()
+                val document = parser.parse(post.body)
+                val html = renderer.render(document)
+                contentTextView.renderHtml(html)
+            }
         }
     }
 }
