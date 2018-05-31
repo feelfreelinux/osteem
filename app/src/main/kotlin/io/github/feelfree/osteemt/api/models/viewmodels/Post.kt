@@ -24,4 +24,6 @@ class Post(
             } else null
 
     val description by lazy { body.removeMarkdown() }
+
+    val isHtml : Boolean = jsonMetadata?.format == JsonMetadata.TYPE_HTML
 }

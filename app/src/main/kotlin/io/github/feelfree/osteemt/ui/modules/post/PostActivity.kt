@@ -3,10 +3,13 @@ package io.github.feelfree.osteemt.ui.modules.post
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.vladsch.flexmark.html.HtmlRenderer
+import com.vladsch.flexmark.parser.Parser
 import io.github.feelfree.osteemt.R
 import io.github.feelfree.osteemt.api.models.viewmodels.Post
 import io.github.feelfree.osteemt.base.BaseActivity
 import io.github.feelfree.osteemt.utils.isVisible
+import io.github.feelfree.osteemt.utils.renderHtml
 import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
@@ -64,6 +67,14 @@ class PostActivity : BaseActivity(), PostView {
 
     override fun showPost(post: Post) {
         loadingView.isVisible = false
-        markdownView.markdown = post.body
+        if (post.isHtml) {
+            contentTextView.renderHtml(post.body)
+        } else {
+            val parser = Parser.builder().build()
+            val renderer = HtmlRenderer.builder().build()
+            val document = parser.parse(post.body)
+            val html = renderer.render(document)
+            contentTextView.renderHtml(html)
+        }
     }
 }

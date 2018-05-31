@@ -2,10 +2,12 @@ package io.github.feelfree.osteemt.utils
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import io.github.feelfree.osteemt.GlideApp
 import org.ocpsoft.prettytime.PrettyTime
 import java.text.SimpleDateFormat
@@ -20,6 +22,14 @@ fun RecyclerView.prepare() {
     isDrawingCacheEnabled = true
     setHasFixedSize(true)
     addItemDecoration(RecyclerViewItemSeparator(context))
+}
+
+fun TextView.renderHtml(body : String) {
+    text = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+        Html.fromHtml(body,Html.FROM_HTML_MODE_LEGACY);
+    } else {
+        Html.fromHtml(body)
+    }
 }
 
 fun ViewGroup.inflate(layoutId: Int): View =

@@ -32,8 +32,8 @@
             android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <ru.noties.markwon.view.MarkwonView
-                android:id="@+id/markdownView"
+            <TextView
+                android:id="@+id/contentTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp" />
