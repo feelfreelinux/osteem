@@ -3,8 +3,10 @@ package io.github.feelfree.osteemt.ui.modules.post
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.vladsch.flexmark.Extension
 import com.vladsch.flexmark.html.HtmlRenderer
 import com.vladsch.flexmark.parser.Parser
+import com.vladsch.flexmark.util.options.MutableDataSet
 import io.github.feelfree.osteemt.R
 import io.github.feelfree.osteemt.api.models.viewmodels.Post
 import io.github.feelfree.osteemt.base.BaseActivity
@@ -13,6 +15,10 @@ import io.github.feelfree.osteemt.utils.renderHtml
 import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
+import com.vladsch.flexmark.ext.autolink.AutolinkExtension
+import java.util.Arrays.asList
+
+
 
 class PostActivity : BaseActivity(), PostView {
     companion object {
@@ -70,15 +76,15 @@ class PostActivity : BaseActivity(), PostView {
 
     override fun showPost(post: Post) {
         loadingView.isVisible = false
-        when {
-            post.isHtml -> contentTextView.renderHtml(post.body)
-            else -> {
-                val parser = Parser.builder().build()
-                val renderer = HtmlRenderer.builder().build()
-                val document = parser.parse(post.body)
-                val html = renderer.render(document)
-                contentTextView.renderHtml(html)
-            }
-        }
+        val options = MutableDataSet()
+        options.set(Parser.PARSE_MULTI_LINE_IMAGE_URLS, true)
+        options.set(Parser.SPACE_IN_LINK_ELEMENTS, true)
+        options.set(Parser.LINKS_ALLOW_MATCHED_PARENTHESES, true)
+        val parser = Parser.builder(options)
+                .extensions(listOf(AutolinkExtension.create())).build()
+        val renderer = HtmlRenderer.builder(options).build()
+        val document = parser.parse(post.body)
+        val html = renderer.render(document)
+        contentTextView.renderHtml(html)
     }
 }
