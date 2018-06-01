@@ -18,17 +18,20 @@ class PostActivity : BaseActivity(), PostView {
     companion object {
         const val EXTRA_PERMLINK = "EXTRA_PERMLINK"
         const val EXTRA_AUTHOR = "EXTRA_AUTHOR"
+        const val EXTRA_TITLE = "EXTRA_TITLE"
 
-        fun createIntent(permlink: String, author: String, context: Context): Intent {
+        fun createIntent(permlink: String, author: String, title: String, context: Context): Intent {
             val intent = Intent(context, PostActivity::class.java)
             intent.putExtra(EXTRA_AUTHOR, author)
             intent.putExtra(EXTRA_PERMLINK, permlink)
+            intent.putExtra(EXTRA_TITLE, title)
             return intent
         }
     }
 
     val permlink: String by lazy { intent.getStringExtra(EXTRA_PERMLINK) }
     val author: String by lazy { intent.getStringExtra(EXTRA_AUTHOR) }
+    val title: String by lazy { intent.getStringExtra(EXTRA_TITLE) }
 
     @Inject
     lateinit var presenter: PostPresenter
@@ -41,10 +44,10 @@ class PostActivity : BaseActivity(), PostView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
+        toolbar?.title = title
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
         loadingView.isVisible = true
         presenter.subscribe(this)
         presenter.loadDiscussion(author, permlink)

@@ -15,7 +15,7 @@ class MainNavigationActivity : BaseActivity(), BottomNavigationView.OnNavigation
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         toolbar?.title = "Feed"
-        toolbar?.setSubtitle("Trending")
+        toolbar?.subtitle = "Trending"
         setSupportActionBar(toolbar)
         openFragment(FeedFragment.newInstance())
     }

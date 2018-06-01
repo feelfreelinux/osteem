@@ -25,7 +25,7 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
         }
 
         containerView.setOnClickListener {
-            containerView.context.startActivity(PostActivity.createIntent(post.permlink, post.author, containerView.context))
+            containerView.context.startActivity(PostActivity.createIntent(post.permlink, post.author, post.title, containerView.context))
         }
     }
 }
