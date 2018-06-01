@@ -13,6 +13,11 @@ import org.ocpsoft.prettytime.PrettyTime
 import java.text.SimpleDateFormat
 import java.util.*
 
+const val REGEX_BIEDAMARKDOWN = "<[^>]*>|\\*|\\_|`/g"
+const val REGEX_LINKMARKDOWN = "(?:!\\[(.*?)\\]\\((.*?)\\))|(\\[(.*?)\\]\\((.*?)\\))/g"
+
+
+
 // Remember to do not overuse extensions,
 // data-related operations should use separate utils class
 // But for android views its really handy.
@@ -30,6 +35,11 @@ fun TextView.renderHtml(body : String) {
     } else {
         Html.fromHtml(body)
     }
+}
+
+fun String.removeMarkdown(): String {
+    val step1 = REGEX_LINKMARKDOWN.toRegex().replace(this.replace("\n", "").replace("\r", ""), "")
+    return REGEX_BIEDAMARKDOWN.toRegex().replace(step1, "")
 }
 
 fun ViewGroup.inflate(layoutId: Int): View =

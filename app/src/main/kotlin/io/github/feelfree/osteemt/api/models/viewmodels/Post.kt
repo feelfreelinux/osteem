@@ -1,9 +1,7 @@
 package io.github.feelfree.osteemt.api.models.viewmodels
 
-import com.vladsch.flexmark.html.HtmlRenderer
-import com.vladsch.flexmark.parser.Parser
 import io.github.feelfree.osteemt.api.models.apimodels.JsonMetadata
-
+import io.github.feelfree.osteemt.utils.removeMarkdown
 class Post(
         val id: Int,
         val author: String,
@@ -24,16 +22,9 @@ class Post(
                 jsonMetadata.image.first()
             } else null
 
-    val description: CharSequence? by lazy {
-        when {
-            isHtml -> body
-            else -> {
-                val parser = Parser.builder().build()
-                val renderer = HtmlRenderer.builder().build()
-                val document = parser.parse(body)
-                renderer.render(document)
-            }
-        }
+    val description: String by lazy {
+        val markdownFree = body.removeMarkdown()
+        if (markdownFree.length > 100) markdownFree.substring(0, 100) else markdownFree
     }
 
     val isHtml: Boolean = jsonMetadata?.format == JsonMetadata.TYPE_HTML
