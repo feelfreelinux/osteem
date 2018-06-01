@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import io.github.feelfree.osteemt.GlideApp
+import io.github.feelfree.osteemt.utils.html.HtmlImageGetter
 import org.ocpsoft.prettytime.PrettyTime
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,9 +32,9 @@ fun RecyclerView.prepare() {
 
 fun TextView.renderHtml(body : String) {
     text = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-        Html.fromHtml(body, Html.FROM_HTML_MODE_LEGACY)
+        Html.fromHtml(body, Html.FROM_HTML_MODE_LEGACY, HtmlImageGetter(context, this), null)
     } else {
-        Html.fromHtml(body)
+        Html.fromHtml(body,  HtmlImageGetter(context, this), null)
     }
 }
 

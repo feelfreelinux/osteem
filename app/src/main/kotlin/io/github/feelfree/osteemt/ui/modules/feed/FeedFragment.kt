@@ -63,18 +63,9 @@ class FeedFragment : BaseFragment(), FeedFragmentView {
         swiperefresh.isRefreshing = false
     }
 
-    override fun onPause() {
-        super.onPause()
-        presenter.unsubscribe()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        presenter.subscribe(this)
-    }
-
     override fun onDestroy() {
         super.onDestroy()
+        presenter.unsubscribe()
         presenter.dispose()
     }
 }
