@@ -3,6 +3,7 @@ package io.github.feelfree.osteemt.ui.modules.post
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import com.vladsch.flexmark.Extension
 import com.vladsch.flexmark.html.HtmlRenderer
 import com.vladsch.flexmark.parser.Parser
@@ -16,6 +17,9 @@ import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 import com.vladsch.flexmark.ext.autolink.AutolinkExtension
+import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
+import org.intellij.markdown.html.HtmlGenerator
+import org.intellij.markdown.parser.MarkdownParser
 import java.util.Arrays.asList
 
 
@@ -78,12 +82,18 @@ class PostActivity : BaseActivity(), PostView {
         loadingView.isVisible = false
         val options = MutableDataSet()
         options.set(Parser.PARSE_MULTI_LINE_IMAGE_URLS, true)
-        options.set(Parser.SPACE_IN_LINK_ELEMENTS, true)
+                .set(Parser.SPACE_IN_LINK_ELEMENTS, true)
+                .set(Parser.HTML_BLOCK_DEEP_PARSER, true)
+                .set(Parser.HTML_BLOCK_DEEP_PARSE_NON_BLOCK, true)
+                .set(Parser.HTML_BLOCK_DEEP_PARSE_BLANK_LINE_INTERRUPTS, false)
+                .set(Parser.HTML_BLOCK_DEEP_PARSE_MARKDOWN_INTERRUPTS_CLOSED, true)
+                .set(Parser.HTML_BLOCK_DEEP_PARSE_BLANK_LINE_INTERRUPTS_PARTIAL_TAG, false)
+
         options.set(Parser.LINKS_ALLOW_MATCHED_PARENTHESES, true)
         val parser = Parser.builder(options)
                 .extensions(listOf(AutolinkExtension.create())).build()
         val renderer = HtmlRenderer.builder(options).build()
-        val document = parser.parse(post.body)
+        val document = parser.parse(post.body.replace("<center>", "").replace("</center>", ""))
         val html = renderer.render(document)
         contentTextView.renderHtml(html)
     }
