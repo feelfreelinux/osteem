@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import com.commonsware.cwac.anddown.AndDown
 import com.vladsch.flexmark.Extension
 import com.vladsch.flexmark.html.HtmlRenderer
 import com.vladsch.flexmark.parser.Parser
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 import com.vladsch.flexmark.ext.autolink.AutolinkExtension
+import io.github.feelfree.osteemt.utils.html.MarkdownUtils
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.intellij.markdown.html.HtmlGenerator
 import org.intellij.markdown.parser.MarkdownParser
@@ -80,6 +82,7 @@ class PostActivity : BaseActivity(), PostView {
 
     override fun showPost(post: Post) {
         loadingView.isVisible = false
+        /*
         val options = MutableDataSet()
         options.set(Parser.PARSE_MULTI_LINE_IMAGE_URLS, true)
                 .set(Parser.SPACE_IN_LINK_ELEMENTS, true)
@@ -94,7 +97,8 @@ class PostActivity : BaseActivity(), PostView {
                 .extensions(listOf(AutolinkExtension.create())).build()
         val renderer = HtmlRenderer.builder(options).build()
         val document = parser.parse(post.body.replace("<center>", "").replace("</center>", ""))
-        val html = renderer.render(document)
+        val html = renderer.render(document)*/
+        val html = AndDown().markdownToHtml(MarkdownUtils.correctMarkdown(post.body), AndDown.HOEDOWN_EXT_AUTOLINK, AndDown.HOEDOWN_HTML_SKIP_HTML)
         contentTextView.renderHtml(html)
     }
 }
