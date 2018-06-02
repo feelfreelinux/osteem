@@ -6,7 +6,6 @@ import io.github.feelfree.osteemt.api.models.viewmodels.Post
 import io.github.feelfree.osteemt.ui.modules.post.PostActivity
 import io.github.feelfree.osteemt.utils.isVisible
 import io.github.feelfree.osteemt.utils.loadImage
-import io.github.feelfree.osteemt.utils.renderHtml
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.post_list_item.*
 
@@ -15,13 +14,13 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
         // @TODO write some real code here
         titleTextView.text = post.title
         authorTextView.text = post.author
-        body.text = post.description
-        votes.text = " • ${post.netVotes} votes • ${post.children} comments"
-        payout.text = post.pendingPayoutValue
+        bodyTextView.text = post.description
+        votesTextView.text = " • ${post.netVotes} votes • ${post.children} comments"
+        payoutTextView.text = post.pendingPayoutValue
         tagDataTextView.text = "in ${post.category} • ${post.createdAt}"
-        previewImage.isVisible = post.thumbnail != null
+        previewImageView.isVisible = post.thumbnail != null
         post.thumbnail?.let {
-            previewImage.loadImage(post.thumbnail!!)
+            previewImageView.loadImage(post.thumbnail!!)
         }
 
         containerView.setOnClickListener {

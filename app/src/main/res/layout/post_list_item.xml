@@ -13,10 +13,10 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/previewImage"
+            android:id="@+id/previewImageView"
             android:layout_width="0dp"
             android:layout_height="120dp"
-            android:contentDescription="previewImage"
+            android:contentDescription="previewImageView"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,8 +29,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/previewImage"
-            app:layout_constraintTop_toBottomOf="@+id/previewImage"
+            app:layout_constraintStart_toStartOf="@+id/previewImageView"
+            app:layout_constraintTop_toBottomOf="@+id/previewImageView"
             tools:text="sweetsssj" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/authorTextView"
-            app:layout_constraintTop_toBottomOf="@+id/previewImage"
+            app:layout_constraintTop_toBottomOf="@+id/previewImageView"
             tools:text="in dlive • 16 hours ago" />
 
         <TextView
@@ -53,14 +53,14 @@
             android:textAlignment="viewStart"
             android:textColor="#000000"
             android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/previewImage"
+            app:layout_constraintEnd_toEndOf="@+id/previewImageView"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/authorTextView"
             tools:text="Travel with me #109 : Dolphin spotting in Hualien, Taiwan!" /> <!-- Every tools: attribute is ignored by compiler. -->
 
         <TextView
-            android:id="@+id/body"
+            android:id="@+id/bodyTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -74,7 +74,7 @@
             tools:text="Dear Steemit Friends: Today we're going to be exploring some of the coastal area of" /> <!-- Every tools: attribute is ignored by compiler. -->
 
         <TextView
-            android:id="@+id/payout"
+            android:id="@+id/payoutTextView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -82,18 +82,18 @@
             android:drawableStart="@drawable/ic_upvote"
             android:gravity="center_vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/body"
+            app:layout_constraintTop_toBottomOf="@id/bodyTextView"
             tools:text="$398.49" />
 
         <TextView
-            android:id="@+id/votes"
+            android:id="@+id/votesTextView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:gravity="center_vertical"
-            app:layout_constraintStart_toEndOf="@id/payout"
-            app:layout_constraintTop_toBottomOf="@id/body"
+            app:layout_constraintStart_toEndOf="@id/payoutTextView"
+            app:layout_constraintTop_toBottomOf="@id/bodyTextView"
             tools:text=" • 1043 votes • 167 comments" />
 
     </android.support.constraint.ConstraintLayout>
