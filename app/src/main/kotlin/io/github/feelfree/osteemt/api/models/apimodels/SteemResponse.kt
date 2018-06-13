@@ -8,11 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class SteemResponse<out V : Any>(
-        @JsonProperty("jsonrpc")
-        val jsonrpc : String,
-
-        @JsonProperty("result")
-        val result : V?,
+        @JsonProperty("data")
+        val data : V?,
 
         @JsonProperty("error")
         val error : SteemError?

@@ -9,7 +9,7 @@ class SteemReponseWrapper<T : Any> : SingleTransformer<SteemResponse<T>, T> {
     override fun apply(upstream: Single<SteemResponse<T>>): SingleSource<T> = upstream.flatMap {
         when {
             it.error != null -> Single.error(it.error)
-            else -> Single.just(it.result!!)
+            else -> Single.just(it.data!!)
         }
     }
 }

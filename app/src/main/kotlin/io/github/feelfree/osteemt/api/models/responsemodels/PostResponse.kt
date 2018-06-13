@@ -23,18 +23,24 @@ data class PostResponse(
         @JsonProperty("title")
         val title : String,
 
-        @JsonProperty("body")
-        val body : String,
+        @JsonProperty("tags")
+        val tags : List<String>,
 
-        @JsonProperty("json_metadata")
-        val jsonMetadata : String,
+        @JsonProperty("images")
+        val images : List<String>,
 
-        @JsonProperty("pending_payout_value")
-        val pendingPayoutValue : String,
+        @JsonProperty("links")
+        val links : List<String>,
 
-        @JsonProperty("children")
+        @JsonProperty("description")
+        val description : String,
+
+        @JsonProperty("comments")
         val children : Int,
 
-        @JsonProperty("net_votes")
-        val netVotes : Int
+        @JsonProperty("votes")
+        val votes : Int,
+
+        @JsonProperty("pendingPayoutValue")
+        val pendingPayoutValue : String
 )

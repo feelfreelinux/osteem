@@ -98,7 +98,7 @@ class PostActivity : BaseActivity(), PostView {
         val renderer = HtmlRenderer.builder(options).build()
         val document = parser.parse(post.body.replace("<center>", "").replace("</center>", ""))
         val html = renderer.render(document)*/
-        val html = AndDown().markdownToHtml(MarkdownUtils.correctMarkdown(post.body), AndDown.HOEDOWN_EXT_AUTOLINK, AndDown.HOEDOWN_HTML_SKIP_HTML)
-        contentTextView.renderHtml(html)
+        //val html = AndDown().markdownToHtml(MarkdownUtils.correctMarkdown(post.body), AndDown.HOEDOWN_EXT_AUTOLINK, AndDown.HOEDOWN_HTML_SKIP_HTML)
+        //contentTextView.renderHtml(html)
     }
 }

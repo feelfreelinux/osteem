@@ -7,7 +7,7 @@ import io.github.feelfree.osteemt.base.Schedulers
 class FeedFragmentPresenter(val schedulers: Schedulers, private val postsApi: PostsApi) : BasePresenter<FeedFragmentView>() {
     fun loadTrendingPosts(shouldRefresh : Boolean, startAuthor : String? = null, startPermlink : String? = null) {
         compositeObservable.add(
-                postsApi.getDiscussionsByTrending("", 333, startAuthor, startPermlink)
+                postsApi.getDiscussionsByTrending(null, startAuthor, startPermlink)
                         .subscribeOn(schedulers.backgroundThread())
                         .observeOn(schedulers.mainThread())
                         .subscribe({

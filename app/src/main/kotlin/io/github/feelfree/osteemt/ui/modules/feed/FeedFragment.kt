@@ -59,6 +59,7 @@ class FeedFragment : BaseFragment(), FeedFragmentView {
     }
 
     override fun showError(e: Throwable) {
+        throw e
         Snackbar.make(view!!, e.toString(), Snackbar.LENGTH_LONG).show()
         swiperefresh.isRefreshing = false
     }

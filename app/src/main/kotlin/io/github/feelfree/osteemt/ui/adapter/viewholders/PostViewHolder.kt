@@ -15,7 +15,7 @@ class PostViewHolder(override val containerView: View) : RecyclerView.ViewHolder
         titleTextView.text = post.title
         authorTextView.text = post.author
         bodyTextView.text = post.description
-        votesTextView.text = " • ${post.netVotes} votes • ${post.children} comments"
+        votesTextView.text = " • ${post.votes} votes • ${post.children} comments"
         payoutTextView.text = post.pendingPayoutValue
         tagDataTextView.text = "in ${post.category} • ${post.createdAt}"
         previewImageView.isVisible = post.thumbnail != null
