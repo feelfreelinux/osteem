@@ -10,10 +10,11 @@ class Post(
         val pendingPayoutValue: String,
         val children: Int,
         val votes: Int,
-        val description : String,
-        val images : List<String>,
-        val links : List<String>,
-        val tags : List<String>
+        val description: String,
+        val body: String,
+        val images: List<String>,
+        val links: List<String>,
+        val tags: List<String>
 ) {
     val avatarUrl = "https://steemitimages.com/u/$author/avatar"
     val thumbnail: String?

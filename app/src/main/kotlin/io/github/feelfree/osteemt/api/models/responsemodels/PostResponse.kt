@@ -35,6 +35,9 @@ data class PostResponse(
         @JsonProperty("description")
         val description : String,
 
+        @JsonProperty("body")
+        val body: String,
+
         @JsonProperty("comments")
         val children : Int,
 
